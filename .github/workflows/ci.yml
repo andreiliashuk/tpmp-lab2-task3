@@ -1,0 +1,32 @@
+name: C Build and Test
+
+on:
+  push:
+    branches: [ main, master, development ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Display structure of files
+      run: ls -la
+
+    - name: Build with Make
+      run: make
+
+    - name: Run program (test with sample input)
+      run: |
+        echo -e "Иванов Иван\nОвен\n1990 5 15\nПетров Петр\nТелец\n1985 3 20\nСидоров Сидор\nОвен\n2000 7 10\n" | ./bin/program
+      continue-on-error: true
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: program-binary
+        path: bin/
