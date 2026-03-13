@@ -1,3 +1,6 @@
+/*
+ * Author: Андрей Ляшук, группа 10
+ */
 #ifndef ZNAK_H
 #define ZNAK_H
 typedef struct {
