@@ -1,3 +1,6 @@
+/*
+ * Author: Андрей Ляшук, группа 10
+ */
 #include <stdio.h>
 #include "znak.h"
 
